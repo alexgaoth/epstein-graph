@@ -1,0 +1,33 @@
+{
+  "timestamp": "2025-01-01T00:00:00.000Z",
+  "note": "Sample harvest report — run `npm run fetch-data` to generate a fresh report from live DOJ pages.",
+  "pages_crawled": [
+    "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell"
+  ],
+  "documents_found": [],
+  "name_matches": [
+    { "person": "Ghislaine Maxwell", "document": "case page", "mention_count": 1 },
+    { "person": "Sarah Kellen", "document": "NPA reference", "mention_count": 1 },
+    { "person": "Nadia Marcinkova", "document": "NPA reference", "mention_count": 1 },
+    { "person": "Lesley Groff", "document": "NPA reference", "mention_count": 1 },
+    { "person": "Adriana Ross", "document": "NPA reference", "mention_count": 1 },
+    { "person": "Jean-Luc Brunel", "document": "trial testimony", "mention_count": 1 },
+    { "person": "Larry Visoski", "document": "trial testimony", "mention_count": 1 },
+    { "person": "David Rodgers", "document": "flight logs exhibit", "mention_count": 1 },
+    { "person": "Juan Alessi", "document": "trial testimony", "mention_count": 1 },
+    { "person": "Alfredo Rodriguez", "document": "obstruction case", "mention_count": 1 },
+    { "person": "Haley Robson", "document": "trial testimony", "mention_count": 1 },
+    { "person": "Virginia Giuffre", "document": "superseding indictment", "mention_count": 1 },
+    { "person": "Maria Farmer", "document": "superseding indictment", "mention_count": 1 },
+    { "person": "Annie Farmer", "document": "trial testimony", "mention_count": 1 },
+    { "person": "Sarah Ransome", "document": "civil complaint", "mention_count": 1 },
+    { "person": "Jennifer Araoz", "document": "victim impact statement", "mention_count": 1 },
+    { "person": "Bradley Edwards", "document": "CVRA litigation", "mention_count": 1 },
+    { "person": "Marie Villafana", "document": "OPR review", "mention_count": 1 },
+    { "person": "Maurene Comey", "document": "case docket", "mention_count": 1 },
+    { "person": "Audrey Strauss", "document": "press release", "mention_count": 1 }
+  ],
+  "errors": [],
+  "nodes_generated": 21,
+  "edges_generated": 25
+}

@@ -1,0 +1,406 @@
+{
+  "nodes": [
+    {
+      "id": "epstein",
+      "label": "Jeffrey Epstein",
+      "role": "Central subject — convicted sex offender",
+      "x": 0,
+      "y": 0,
+      "size": 18,
+      "color": "#00d4ff",
+      "type": "central"
+    },
+    {
+      "id": "maxwell",
+      "label": "Ghislaine Maxwell",
+      "role": "Convicted co-conspirator",
+      "x": -40,
+      "y": -30
+    },
+    {
+      "id": "kellen",
+      "label": "Sarah Kellen",
+      "role": "Named in NPA — alleged scheduler",
+      "x": 50,
+      "y": -20
+    },
+    {
+      "id": "marcinkova",
+      "label": "Nadia Marcinkova",
+      "role": "Named in NPA — alleged participant",
+      "x": 30,
+      "y": 50
+    },
+    {
+      "id": "groff",
+      "label": "Lesley Groff",
+      "role": "Named in NPA — executive assistant",
+      "x": -60,
+      "y": 20
+    },
+    {
+      "id": "ross",
+      "label": "Adriana Ross",
+      "role": "Named in NPA — alleged recruiter",
+      "x": 60,
+      "y": 30
+    },
+    {
+      "id": "brunel",
+      "label": "Jean-Luc Brunel",
+      "role": "Modeling agent — charged in France",
+      "x": -30,
+      "y": 60
+    },
+    {
+      "id": "visoski",
+      "label": "Larry Visoski",
+      "role": "Personal pilot — testified at Maxwell trial",
+      "x": 70,
+      "y": -40
+    },
+    {
+      "id": "rodgers",
+      "label": "David Rodgers",
+      "role": "Pilot — flight log keeper",
+      "x": 80,
+      "y": 10
+    },
+    {
+      "id": "alessi",
+      "label": "Juan Alessi",
+      "role": "House manager — testified at Maxwell trial",
+      "x": -50,
+      "y": -50
+    },
+    {
+      "id": "rodriguez",
+      "label": "Alfredo Rodriguez",
+      "role": "House manager — held black book",
+      "x": -70,
+      "y": -10
+    },
+    {
+      "id": "robson",
+      "label": "Haley Robson",
+      "role": "Alleged recruiter — testified",
+      "x": 20,
+      "y": -60
+    },
+    {
+      "id": "giuffre",
+      "label": "Virginia Giuffre",
+      "role": "Key accuser — civil plaintiff",
+      "x": -20,
+      "y": -70
+    },
+    {
+      "id": "farmer",
+      "label": "Maria Farmer",
+      "role": "Accuser — reported abuse in 1996",
+      "x": 40,
+      "y": -50
+    },
+    {
+      "id": "ward",
+      "label": "Annie Farmer",
+      "role": "Accuser — testified at Maxwell trial",
+      "x": -40,
+      "y": 50
+    },
+    {
+      "id": "ransome",
+      "label": "Sarah Ransome",
+      "role": "Accuser — civil plaintiff",
+      "x": -80,
+      "y": 30
+    },
+    {
+      "id": "araoz",
+      "label": "Jennifer Araoz",
+      "role": "Accuser — testified to Congress",
+      "x": 0,
+      "y": 70
+    },
+    {
+      "id": "edwards",
+      "label": "Bradley Edwards",
+      "role": "Victims' attorney — filed CVRA suit",
+      "x": 50,
+      "y": 60
+    },
+    {
+      "id": "villafana",
+      "label": "Marie Villafana",
+      "role": "Former AUSA — handled NPA",
+      "x": -60,
+      "y": -40
+    },
+    {
+      "id": "comey_m",
+      "label": "Maurene Comey",
+      "role": "SDNY prosecutor — Maxwell case",
+      "x": 60,
+      "y": -60
+    },
+    {
+      "id": "strauss",
+      "label": "Audrey Strauss",
+      "role": "Acting U.S. Attorney — announced Maxwell arrest",
+      "x": -20,
+      "y": 40
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-epstein-maxwell",
+      "source": "epstein",
+      "target": "maxwell",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Ghislaine Maxwell — Indictment (20 Cr. 330)",
+      "quote_snippet": "Ghislaine Maxwell assisted, facilitated, and contributed to Jeffrey Epstein's abuse of minor girls by, among other things, helping Epstein to recruit, groom, and ultimately abuse victims known to Maxwell and Epstein to be under the age of eighteen.",
+      "page": 2
+    },
+    {
+      "id": "e-epstein-kellen",
+      "source": "epstein",
+      "target": "kellen",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Epstein — Non-Prosecution Agreement (2007)",
+      "quote_snippet": "Sarah Kellen named as potential co-conspirator in the Non-Prosecution Agreement between the United States and Jeffrey Epstein.",
+      "page": 3
+    },
+    {
+      "id": "e-epstein-marcinkova",
+      "source": "epstein",
+      "target": "marcinkova",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Epstein — Non-Prosecution Agreement (2007)",
+      "quote_snippet": "Nadia Marcinkova identified as potential co-conspirator in the Non-Prosecution Agreement.",
+      "page": 3
+    },
+    {
+      "id": "e-epstein-groff",
+      "source": "epstein",
+      "target": "groff",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Epstein — Non-Prosecution Agreement (2007)",
+      "quote_snippet": "Lesley Groff named as potential co-conspirator in the Non-Prosecution Agreement between the United States and Jeffrey Epstein.",
+      "page": 4
+    },
+    {
+      "id": "e-epstein-ross",
+      "source": "epstein",
+      "target": "ross",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Epstein — Non-Prosecution Agreement (2007)",
+      "quote_snippet": "Adriana Ross named as potential co-conspirator in the Non-Prosecution Agreement.",
+      "page": 4
+    },
+    {
+      "id": "e-epstein-brunel",
+      "source": "epstein",
+      "target": "brunel",
+      "connection_type": "testimony mention",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Maxwell — Trial Testimony Records",
+      "quote_snippet": "Jean-Luc Brunel referenced in testimony as associate who provided access to young models through MC2 modeling agency.",
+      "page": null
+    },
+    {
+      "id": "e-epstein-visoski",
+      "source": "epstein",
+      "target": "visoski",
+      "connection_type": "testimony mention",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Maxwell — Trial Transcript, Testimony of Larry Visoski",
+      "quote_snippet": "Larry Visoski testified he served as Epstein's personal pilot for approximately 25 years, flying Epstein on his private aircraft.",
+      "page": null
+    },
+    {
+      "id": "e-epstein-rodgers",
+      "source": "epstein",
+      "target": "rodgers",
+      "connection_type": "flight record",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Maxwell — Government Exhibit: Flight Logs",
+      "quote_snippet": "David Rodgers maintained handwritten flight logs for Epstein's aircraft, entered as Government Exhibit at the Maxwell trial.",
+      "page": null
+    },
+    {
+      "id": "e-epstein-alessi",
+      "source": "epstein",
+      "target": "alessi",
+      "connection_type": "testimony mention",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Maxwell — Trial Transcript, Testimony of Juan Alessi",
+      "quote_snippet": "Juan Alessi testified he worked as house manager at Epstein's Palm Beach residence for approximately eleven years.",
+      "page": null
+    },
+    {
+      "id": "e-epstein-rodriguez",
+      "source": "epstein",
+      "target": "rodriguez",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "SDFL Case Records — Alfredo Rodriguez Obstruction Case",
+      "quote_snippet": "Alfredo Rodriguez, a former house manager for Epstein, was convicted of obstruction of justice for attempting to sell Epstein's personal phone directory.",
+      "page": null
+    },
+    {
+      "id": "e-epstein-robson",
+      "source": "epstein",
+      "target": "robson",
+      "connection_type": "testimony mention",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Maxwell — Trial Transcript, Testimony of Haley Robson",
+      "quote_snippet": "Haley Robson testified about being recruited and subsequently recruiting other girls to provide massages at Epstein's Palm Beach residence.",
+      "page": null
+    },
+    {
+      "id": "e-epstein-giuffre",
+      "source": "epstein",
+      "target": "giuffre",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Maxwell — Superseding Indictment (S2 20 Cr. 330)",
+      "quote_snippet": "Virginia Giuffre identified in court filings as a victim recruited by Ghislaine Maxwell for Jeffrey Epstein beginning around 1999-2000.",
+      "page": 5
+    },
+    {
+      "id": "e-epstein-farmer",
+      "source": "epstein",
+      "target": "farmer",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Maxwell — Superseding Indictment (S2 20 Cr. 330)",
+      "quote_snippet": "Maria Farmer identified as a victim who reported abuse by Epstein and Maxwell to the FBI in 1996.",
+      "page": 7
+    },
+    {
+      "id": "e-epstein-ward",
+      "source": "epstein",
+      "target": "ward",
+      "connection_type": "testimony mention",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Maxwell — Trial Transcript, Testimony of Annie Farmer",
+      "quote_snippet": "Annie Farmer testified that Maxwell and Epstein sexually abused her when she was sixteen years old during a visit to Epstein's New Mexico ranch.",
+      "page": null
+    },
+    {
+      "id": "e-epstein-ransome",
+      "source": "epstein",
+      "target": "ransome",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "Ransome v. Maxwell — Civil Complaint (SDNY)",
+      "quote_snippet": "Sarah Ransome filed a civil suit detailing allegations of sexual abuse by Epstein on his private island.",
+      "page": null
+    },
+    {
+      "id": "e-epstein-araoz",
+      "source": "epstein",
+      "target": "araoz",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "SDNY Victim Impact Statements — Jennifer Araoz",
+      "quote_snippet": "Jennifer Araoz submitted a victim impact statement to the court describing abuse by Epstein beginning when she was fourteen years old.",
+      "page": null
+    },
+    {
+      "id": "e-epstein-edwards",
+      "source": "epstein",
+      "target": "edwards",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "Doe v. United States — CVRA Litigation (SDFL)",
+      "quote_snippet": "Attorney Bradley Edwards filed a Crime Victims' Rights Act suit challenging the Epstein Non-Prosecution Agreement on behalf of victims.",
+      "page": null
+    },
+    {
+      "id": "e-epstein-villafana",
+      "source": "epstein",
+      "target": "villafana",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "DOJ OPR Review — Epstein Non-Prosecution Agreement",
+      "quote_snippet": "AUSA Marie Villafana handled the original federal investigation and negotiation of the Non-Prosecution Agreement with Epstein's counsel.",
+      "page": null
+    },
+    {
+      "id": "e-epstein-comey_m",
+      "source": "epstein",
+      "target": "comey_m",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Maxwell — Case Docket, Prosecution Team",
+      "quote_snippet": "AUSA Maurene Comey served as a member of the prosecution team in United States v. Ghislaine Maxwell.",
+      "page": null
+    },
+    {
+      "id": "e-epstein-strauss",
+      "source": "epstein",
+      "target": "strauss",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "DOJ Press Release — Maxwell Arrest Announcement",
+      "quote_snippet": "Acting United States Attorney Audrey Strauss announced the arrest and indictment of Ghislaine Maxwell for conspiring with Jeffrey Epstein to sexually abuse minors.",
+      "page": null
+    },
+    {
+      "id": "e-maxwell-kellen",
+      "source": "maxwell",
+      "target": "kellen",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Maxwell — Indictment",
+      "quote_snippet": "Sarah Kellen referenced in Maxwell indictment as an associate who assisted in scheduling victims for Epstein.",
+      "page": 6
+    },
+    {
+      "id": "e-maxwell-giuffre",
+      "source": "maxwell",
+      "target": "giuffre",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Maxwell — Superseding Indictment",
+      "quote_snippet": "Maxwell recruited and groomed Virginia Giuffre for sexual abuse by Epstein.",
+      "page": 5
+    },
+    {
+      "id": "e-maxwell-alessi",
+      "source": "maxwell",
+      "target": "alessi",
+      "connection_type": "testimony mention",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "United States v. Maxwell — Trial Transcript, Testimony of Juan Alessi",
+      "quote_snippet": "Alessi testified that Maxwell directed household operations and managed access to Epstein's Palm Beach residence.",
+      "page": null
+    },
+    {
+      "id": "e-giuffre-brunel",
+      "source": "giuffre",
+      "target": "brunel",
+      "connection_type": "named in document",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "Court filings referencing Jean-Luc Brunel",
+      "quote_snippet": "Virginia Giuffre alleged in court filings that Brunel provided young girls to Epstein through his modeling agency.",
+      "page": null
+    },
+    {
+      "id": "e-visoski-rodgers",
+      "source": "visoski",
+      "target": "rodgers",
+      "connection_type": "flight record",
+      "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
+      "document_title": "Government Exhibit — Flight Logs",
+      "quote_snippet": "Both Larry Visoski and David Rodgers identified in flight logs as pilots of Epstein's aircraft.",
+      "page": null
+    }
+  ]
+}

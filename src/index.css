@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #06060c;
+}
+
+/* Sigma container */
+.sigma-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+/* Override sigma label styles for dark theme */
+.sigma-container .sigma-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+}
+
+/* Custom scrollbar for panels */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #1a1a2e;
+  border-radius: 2px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #333355;
+}
+
+/* Info panel slide-in */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.panel-enter {
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.fade-enter {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Tooltip styles */
+.tooltip {
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+/* Glow effect for focused elements */
+.glow-accent {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15), 0 0 40px rgba(0, 212, 255, 0.05);
+}
+
+/* Connection type badges */
+.badge {
+  @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium;
+}
+
+.badge-document {
+  @apply bg-blue-900/40 text-blue-300 border border-blue-700/30;
+}
+
+.badge-flight {
+  @apply bg-amber-900/40 text-amber-300 border border-amber-700/30;
+}
+
+.badge-testimony {
+  @apply bg-purple-900/40 text-purple-300 border border-purple-700/30;
+}
+
+.badge-financial {
+  @apply bg-green-900/40 text-green-300 border border-green-700/30;
+}
+
+.badge-photo {
+  @apply bg-pink-900/40 text-pink-300 border border-pink-700/30;
+}
+
+.badge-other {
+  @apply bg-gray-900/40 text-gray-300 border border-gray-700/30;
+}
