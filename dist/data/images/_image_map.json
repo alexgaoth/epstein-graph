@@ -1,0 +1,166 @@
+{
+  "marcinkova": {
+    "image": null,
+    "gender": "female"
+  },
+  "brunel": {
+    "image": null,
+    "gender": "male"
+  },
+  "giuffre": {
+    "image": null,
+    "gender": "female"
+  },
+  "epstein": {
+    "image": "epstein.jpg",
+    "gender": "male"
+  },
+  "maxwell": {
+    "image": "maxwell.png",
+    "gender": "female"
+  },
+  "edwards": {
+    "image": null,
+    "gender": "male"
+  },
+  "pritzker": {
+    "image": null,
+    "gender": "male"
+  },
+  "ransome": {
+    "image": null,
+    "gender": "female"
+  },
+  "richardson": {
+    "image": "richardson.jpg",
+    "gender": "male"
+  },
+  "strauss": {
+    "image": "strauss.jpg",
+    "gender": "female"
+  },
+  "bergman": {
+    "image": null,
+    "gender": "male"
+  },
+  "leon_black": {
+    "image": null,
+    "gender": "male"
+  },
+  "dershowitz": {
+    "image": "dershowitz.jpg",
+    "gender": "male"
+  },
+  "barak": {
+    "image": "barak.jpg",
+    "gender": "male"
+  },
+  "wexner": {
+    "image": "wexner.JPG",
+    "gender": "male"
+  },
+  "kellen": {
+    "image": null,
+    "gender": "female"
+  },
+  "groff": {
+    "image": null,
+    "gender": "female"
+  },
+  "ross": {
+    "image": null,
+    "gender": "female"
+  },
+  "visoski": {
+    "image": null,
+    "gender": "male"
+  },
+  "rodgers": {
+    "image": null,
+    "gender": "male"
+  },
+  "alessi": {
+    "image": null,
+    "gender": "male"
+  },
+  "rodriguez": {
+    "image": null,
+    "gender": "male"
+  },
+  "robson": {
+    "image": null,
+    "gender": "female"
+  },
+  "farmer": {
+    "image": null,
+    "gender": "female"
+  },
+  "ward": {
+    "image": null,
+    "gender": "female"
+  },
+  "araoz": {
+    "image": null,
+    "gender": "female"
+  },
+  "villafana": {
+    "image": null,
+    "gender": "female"
+  },
+  "comey_m": {
+    "image": null,
+    "gender": "female"
+  },
+  "karyna": {
+    "image": null,
+    "gender": "female"
+  },
+  "fiona": {
+    "image": null,
+    "gender": "female"
+  },
+  "kahn": {
+    "image": null,
+    "gender": "male"
+  },
+  "bella": {
+    "image": null,
+    "gender": "female"
+  },
+  "bussue": {
+    "image": null,
+    "gender": "male"
+  },
+  "fontanilla": {
+    "image": null,
+    "gender": "male"
+  },
+  "siegal": {
+    "image": null,
+    "gender": "female"
+  },
+  "indyke": {
+    "image": null,
+    "gender": "male"
+  },
+  "joslin": {
+    "image": null,
+    "gender": "male"
+  },
+  "pickett": {
+    "image": null,
+    "gender": "male"
+  },
+  "dasha": {
+    "image": null,
+    "gender": "female"
+  },
+  "lundeg": {
+    "image": null,
+    "gender": "male"
+  },
+  "fenn": {
+    "image": null,
+    "gender": "male"
+  }
+}

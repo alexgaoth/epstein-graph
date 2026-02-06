@@ -1,61 +1,339 @@
 {
   "groups": {
-    "central": { "color": "#00d4ff", "label": "Central Subject" },
-    "staff": { "color": "#f59e0b", "label": "Inner Circle Staff" },
-    "associate": { "color": "#a855f7", "label": "High-Profile Associate" },
-    "accuser": { "color": "#f472b6", "label": "Accuser / Witness" },
-    "legal": { "color": "#34d399", "label": "Legal & Financial" },
-    "aviation": { "color": "#2dd4bf", "label": "Aviation" },
-    "prosecution": { "color": "#60a5fa", "label": "Prosecution" },
-    "international": { "color": "#ef4444", "label": "International Associate" }
+    "central": {
+      "color": "#00d4ff",
+      "label": "Central Subject"
+    },
+    "staff": {
+      "color": "#f59e0b",
+      "label": "Inner Circle Staff"
+    },
+    "associate": {
+      "color": "#a855f7",
+      "label": "High-Profile Associate"
+    },
+    "accuser": {
+      "color": "#f472b6",
+      "label": "Accuser / Witness"
+    },
+    "legal": {
+      "color": "#34d399",
+      "label": "Legal & Financial"
+    },
+    "aviation": {
+      "color": "#2dd4bf",
+      "label": "Aviation"
+    },
+    "prosecution": {
+      "color": "#60a5fa",
+      "label": "Prosecution"
+    },
+    "international": {
+      "color": "#ef4444",
+      "label": "International Associate"
+    }
   },
   "nodes": [
-    { "id": "epstein", "label": "Jeffrey Epstein", "role": "Central subject — convicted sex offender", "group": "central" },
-    { "id": "maxwell", "label": "Ghislaine Maxwell", "role": "Convicted co-conspirator — 19,200 DOJ docs", "group": "associate" },
-    { "id": "kellen", "label": "Sarah Kellen", "role": "Named in NPA — alleged scheduler", "group": "staff" },
-    { "id": "marcinkova", "label": "Nadia Marcinkova", "role": "Named in NPA — alleged participant", "group": "staff" },
-    { "id": "groff", "label": "Lesley Groff", "role": "Personal secretary/scheduler — 158,816 DOJ docs", "group": "staff" },
-    { "id": "ross", "label": "Adriana Ross", "role": "Named in NPA — alleged recruiter", "group": "staff" },
-    { "id": "brunel", "label": "Jean-Luc Brunel", "role": "Modeling agent — charged in France", "group": "associate" },
-    { "id": "visoski", "label": "Larry Visoski", "role": "Primary pilot — testified at Maxwell trial", "group": "aviation" },
-    { "id": "rodgers", "label": "David Rodgers", "role": "Pilot — flight log keeper", "group": "aviation" },
-    { "id": "alessi", "label": "Juan Alessi", "role": "House manager — testified at Maxwell trial", "group": "staff" },
-    { "id": "rodriguez", "label": "Alfredo Rodriguez", "role": "House manager — held black book", "group": "staff" },
-    { "id": "robson", "label": "Haley Robson", "role": "Alleged recruiter — testified", "group": "staff" },
-    { "id": "giuffre", "label": "Virginia Giuffre", "role": "Key accuser — civil plaintiff", "group": "accuser" },
-    { "id": "farmer", "label": "Maria Farmer", "role": "Accuser — reported abuse in 1996", "group": "accuser" },
-    { "id": "ward", "label": "Annie Farmer", "role": "Accuser — testified at Maxwell trial", "group": "accuser" },
-    { "id": "ransome", "label": "Sarah Ransome", "role": "Accuser — civil plaintiff", "group": "accuser" },
-    { "id": "araoz", "label": "Jennifer Araoz", "role": "Accuser — testified to Congress", "group": "accuser" },
-    { "id": "edwards", "label": "Bradley Edwards", "role": "Victims' attorney — filed CVRA suit", "group": "legal" },
-    { "id": "villafana", "label": "Marie Villafana", "role": "Former AUSA — handled NPA", "group": "prosecution" },
-    { "id": "comey_m", "label": "Maurene Comey", "role": "SDNY prosecutor — Maxwell case", "group": "prosecution" },
-    { "id": "strauss", "label": "Audrey Strauss", "role": "Acting U.S. Attorney — announced Maxwell arrest", "group": "prosecution" },
-
-    { "id": "karyna", "label": "Karyna Shuliak", "role": "Executive assistant / operations manager — 36,574 DOJ docs, D.D.S., active 2012–2019", "group": "staff" },
-    { "id": "fiona", "label": "Fiona Cameron-Williams", "role": "Property & guest manager — 71st Street residence", "group": "staff" },
-    { "id": "kahn", "label": "Richard Kahn", "role": "Operations & maintenance staff — 301 E 66th St", "group": "staff" },
-    { "id": "bella", "label": "Bella Klein", "role": "Financial coordinator — payments and transfers", "group": "staff" },
-    { "id": "bussue", "label": "Cashkim Bussue", "role": "Property maintenance — USVI, June 18 infrastructure inspection", "group": "staff" },
-    { "id": "fontanilla", "label": "Luciano Fontanilla", "role": "Staff — CC'd on Epstein travel emails", "group": "staff" },
-    { "id": "richardson", "label": "Bill Richardson", "role": "Former NM Governor — 2,393 DOJ docs, met Epstein 9+ times post-conviction", "group": "associate" },
-    { "id": "siegal", "label": "Peggy Siegal", "role": "Elite PR publicist — 7,525 DOJ docs, managed Epstein's reputation", "group": "associate" },
-    { "id": "pritzker", "label": "Tom Pritzker", "role": "Hyatt Hotels chairman — 7,087 DOJ docs, $32.5B family fortune", "group": "associate" },
-    { "id": "leon_black", "label": "Leon Black", "role": "Apollo Management — 4,007 DOJ docs, $5M–$20M transactions", "group": "associate" },
-    { "id": "wexner", "label": "Les Wexner", "role": "L Brands founder — gave Epstein power of attorney", "group": "associate" },
-    { "id": "indyke", "label": "Darren K. Indyke", "role": "Primary attorney & trustee — 17,864 DOJ docs, Haze Trust, LSJE LLC agent", "group": "legal" },
-    { "id": "joslin", "label": "Richard Joslin", "role": "Black Family Partners coordinator — financial transactions", "group": "legal" },
-    { "id": "dershowitz", "label": "Alan Dershowitz", "role": "Attorney — named in court filings, represented Epstein", "group": "legal" },
-    { "id": "bergman", "label": "Mickey Bergman", "role": "Intermediary for Bill Richardson — proposal submissions", "group": "legal" },
-    { "id": "pickett", "label": "Charles Pickett III", "role": "Pilot — flew N212JE and other aircraft", "group": "aviation" },
-    { "id": "dasha", "label": "Dasha Burak", "role": "Russian associate — 98 DOJ docs, Mail.ru email, stayed at 2G June 2019", "group": "international" },
-    { "id": "lundeg", "label": "Purevsuren Lundeg", "role": "Mongolian contact — 139 DOJ docs, Geneva/Paris meetings 2015–2019", "group": "international" },
-    { "id": "barak", "label": "Ehud Barak", "role": "Former Israeli PM — documented visits to Epstein properties", "group": "international" },
-    { "id": "fenn", "label": "Patrick Fenn", "role": "Contact — called by Epstein Aug 26, 2013 from island" }
+    {
+      "id": "epstein",
+      "label": "Jeffrey Epstein",
+      "role": "Central subject — convicted sex offender",
+      "group": "central",
+      "gender": "male",
+      "image": "epstein.jpg"
+    },
+    {
+      "id": "maxwell",
+      "label": "Ghislaine Maxwell",
+      "role": "Convicted co-conspirator — 19,200 DOJ docs",
+      "group": "associate",
+      "gender": "female",
+      "image": "maxwell.png"
+    },
+    {
+      "id": "kellen",
+      "label": "Sarah Kellen",
+      "role": "Named in NPA — alleged scheduler",
+      "group": "staff",
+      "gender": "female"
+    },
+    {
+      "id": "marcinkova",
+      "label": "Nadia Marcinkova",
+      "role": "Named in NPA — alleged participant",
+      "group": "staff",
+      "gender": "female"
+    },
+    {
+      "id": "groff",
+      "label": "Lesley Groff",
+      "role": "Personal secretary/scheduler — 158,816 DOJ docs",
+      "group": "staff",
+      "gender": "female"
+    },
+    {
+      "id": "ross",
+      "label": "Adriana Ross",
+      "role": "Named in NPA — alleged recruiter",
+      "group": "staff",
+      "gender": "female"
+    },
+    {
+      "id": "brunel",
+      "label": "Jean-Luc Brunel",
+      "role": "Modeling agent — charged in France",
+      "group": "associate",
+      "gender": "male"
+    },
+    {
+      "id": "visoski",
+      "label": "Larry Visoski",
+      "role": "Primary pilot — testified at Maxwell trial",
+      "group": "aviation",
+      "gender": "male"
+    },
+    {
+      "id": "rodgers",
+      "label": "David Rodgers",
+      "role": "Pilot — flight log keeper",
+      "group": "aviation",
+      "gender": "male"
+    },
+    {
+      "id": "alessi",
+      "label": "Juan Alessi",
+      "role": "House manager — testified at Maxwell trial",
+      "group": "staff",
+      "gender": "male"
+    },
+    {
+      "id": "rodriguez",
+      "label": "Alfredo Rodriguez",
+      "role": "House manager — held black book",
+      "group": "staff",
+      "gender": "male"
+    },
+    {
+      "id": "robson",
+      "label": "Haley Robson",
+      "role": "Alleged recruiter — testified",
+      "group": "staff",
+      "gender": "female"
+    },
+    {
+      "id": "giuffre",
+      "label": "Virginia Giuffre",
+      "role": "Key accuser — civil plaintiff",
+      "group": "accuser",
+      "gender": "female"
+    },
+    {
+      "id": "farmer",
+      "label": "Maria Farmer",
+      "role": "Accuser — reported abuse in 1996",
+      "group": "accuser",
+      "gender": "female"
+    },
+    {
+      "id": "ward",
+      "label": "Annie Farmer",
+      "role": "Accuser — testified at Maxwell trial",
+      "group": "accuser",
+      "gender": "female"
+    },
+    {
+      "id": "ransome",
+      "label": "Sarah Ransome",
+      "role": "Accuser — civil plaintiff",
+      "group": "accuser",
+      "gender": "female"
+    },
+    {
+      "id": "araoz",
+      "label": "Jennifer Araoz",
+      "role": "Accuser — testified to Congress",
+      "group": "accuser",
+      "gender": "female"
+    },
+    {
+      "id": "edwards",
+      "label": "Bradley Edwards",
+      "role": "Victims' attorney — filed CVRA suit",
+      "group": "legal",
+      "gender": "male"
+    },
+    {
+      "id": "villafana",
+      "label": "Marie Villafana",
+      "role": "Former AUSA — handled NPA",
+      "group": "prosecution",
+      "gender": "female"
+    },
+    {
+      "id": "comey_m",
+      "label": "Maurene Comey",
+      "role": "SDNY prosecutor — Maxwell case",
+      "group": "prosecution",
+      "gender": "female"
+    },
+    {
+      "id": "strauss",
+      "label": "Audrey Strauss",
+      "role": "Acting U.S. Attorney — announced Maxwell arrest",
+      "group": "prosecution",
+      "gender": "female",
+      "image": "strauss.jpg"
+    },
+    {
+      "id": "karyna",
+      "label": "Karyna Shuliak",
+      "role": "Executive assistant / operations manager — 36,574 DOJ docs, D.D.S., active 2012–2019",
+      "group": "staff",
+      "gender": "female"
+    },
+    {
+      "id": "fiona",
+      "label": "Fiona Cameron-Williams",
+      "role": "Property & guest manager — 71st Street residence",
+      "group": "staff",
+      "gender": "female"
+    },
+    {
+      "id": "kahn",
+      "label": "Richard Kahn",
+      "role": "Operations & maintenance staff — 301 E 66th St",
+      "group": "staff",
+      "gender": "male"
+    },
+    {
+      "id": "bella",
+      "label": "Bella Klein",
+      "role": "Financial coordinator — payments and transfers",
+      "group": "staff",
+      "gender": "female"
+    },
+    {
+      "id": "bussue",
+      "label": "Cashkim Bussue",
+      "role": "Property maintenance — USVI, June 18 infrastructure inspection",
+      "group": "staff",
+      "gender": "male"
+    },
+    {
+      "id": "fontanilla",
+      "label": "Luciano Fontanilla",
+      "role": "Staff — CC'd on Epstein travel emails",
+      "group": "staff",
+      "gender": "male"
+    },
+    {
+      "id": "richardson",
+      "label": "Bill Richardson",
+      "role": "Former NM Governor — 2,393 DOJ docs, met Epstein 9+ times post-conviction",
+      "group": "associate",
+      "gender": "male",
+      "image": "richardson.jpg"
+    },
+    {
+      "id": "siegal",
+      "label": "Peggy Siegal",
+      "role": "Elite PR publicist — 7,525 DOJ docs, managed Epstein's reputation",
+      "group": "associate",
+      "gender": "female"
+    },
+    {
+      "id": "pritzker",
+      "label": "Tom Pritzker",
+      "role": "Hyatt Hotels chairman — 7,087 DOJ docs, $32.5B family fortune",
+      "group": "associate",
+      "gender": "male"
+    },
+    {
+      "id": "leon_black",
+      "label": "Leon Black",
+      "role": "Apollo Management — 4,007 DOJ docs, $5M–$20M transactions",
+      "group": "associate",
+      "gender": "male",
+      "image": "leon_black.jpg"
+    },
+    {
+      "id": "wexner",
+      "label": "Les Wexner",
+      "role": "L Brands founder — gave Epstein power of attorney",
+      "group": "associate",
+      "gender": "male",
+      "image": "wexner.JPG"
+    },
+    {
+      "id": "indyke",
+      "label": "Darren K. Indyke",
+      "role": "Primary attorney & trustee — 17,864 DOJ docs, Haze Trust, LSJE LLC agent",
+      "group": "legal",
+      "gender": "male"
+    },
+    {
+      "id": "joslin",
+      "label": "Richard Joslin",
+      "role": "Black Family Partners coordinator — financial transactions",
+      "group": "legal",
+      "gender": "male"
+    },
+    {
+      "id": "dershowitz",
+      "label": "Alan Dershowitz",
+      "role": "Attorney — named in court filings, represented Epstein",
+      "group": "legal",
+      "gender": "male",
+      "image": "dershowitz.jpg"
+    },
+    {
+      "id": "bergman",
+      "label": "Mickey Bergman",
+      "role": "Intermediary for Bill Richardson — proposal submissions",
+      "group": "legal",
+      "gender": "male"
+    },
+    {
+      "id": "pickett",
+      "label": "Charles Pickett III",
+      "role": "Pilot — flew N212JE and other aircraft",
+      "group": "aviation",
+      "gender": "male"
+    },
+    {
+      "id": "dasha",
+      "label": "Dasha Burak",
+      "role": "Russian associate — 98 DOJ docs, Mail.ru email, stayed at 2G June 2019",
+      "group": "international",
+      "gender": "female"
+    },
+    {
+      "id": "lundeg",
+      "label": "Purevsuren Lundeg",
+      "role": "Mongolian contact — 139 DOJ docs, Geneva/Paris meetings 2015–2019",
+      "group": "international",
+      "gender": "male"
+    },
+    {
+      "id": "barak",
+      "label": "Ehud Barak",
+      "role": "Former Israeli PM — documented visits to Epstein properties",
+      "group": "international",
+      "gender": "male",
+      "image": "barak.jpg"
+    },
+    {
+      "id": "fenn",
+      "label": "Patrick Fenn",
+      "role": "Contact — called by Epstein Aug 26, 2013 from island",
+      "gender": "male"
+    }
   ],
   "edges": [
     {
-      "id": "e-epstein-maxwell", "source": "epstein", "target": "maxwell",
+      "id": "e-epstein-maxwell",
+      "source": "epstein",
+      "target": "maxwell",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "United States v. Ghislaine Maxwell — Indictment (20 Cr. 330)",
@@ -63,77 +341,99 @@
       "page": 2
     },
     {
-      "id": "e-epstein-kellen", "source": "epstein", "target": "kellen",
+      "id": "e-epstein-kellen",
+      "source": "epstein",
+      "target": "kellen",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "United States v. Epstein — Non-Prosecution Agreement (2007)",
       "quote_snippet": "Sarah Kellen named as potential co-conspirator in the Non-Prosecution Agreement."
     },
     {
-      "id": "e-epstein-marcinkova", "source": "epstein", "target": "marcinkova",
+      "id": "e-epstein-marcinkova",
+      "source": "epstein",
+      "target": "marcinkova",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "United States v. Epstein — Non-Prosecution Agreement (2007)",
       "quote_snippet": "Nadia Marcinkova identified as potential co-conspirator in the Non-Prosecution Agreement."
     },
     {
-      "id": "e-epstein-groff", "source": "epstein", "target": "groff",
+      "id": "e-epstein-groff",
+      "source": "epstein",
+      "target": "groff",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01961642.pdf",
       "document_title": "EFTA01961642 — August 2013 Travel Schedule",
       "quote_snippet": "From: Lesley Groff. Sent Fri 8/23/2013 9:00:55 PM. Subject: Schedule. Tonight: 3:00pm Everyone at the house ready to go with luggage to the airport."
     },
     {
-      "id": "e-epstein-ross", "source": "epstein", "target": "ross",
+      "id": "e-epstein-ross",
+      "source": "epstein",
+      "target": "ross",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "United States v. Epstein — Non-Prosecution Agreement (2007)",
       "quote_snippet": "Adriana Ross named as potential co-conspirator in the Non-Prosecution Agreement."
     },
     {
-      "id": "e-epstein-brunel", "source": "epstein", "target": "brunel",
+      "id": "e-epstein-brunel",
+      "source": "epstein",
+      "target": "brunel",
       "connection_type": "testimony mention",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "United States v. Maxwell — Trial Testimony Records",
       "quote_snippet": "Jean-Luc Brunel referenced in testimony as associate who provided access to young models through MC2 modeling agency."
     },
     {
-      "id": "e-epstein-visoski", "source": "epstein", "target": "visoski",
+      "id": "e-epstein-visoski",
+      "source": "epstein",
+      "target": "visoski",
       "connection_type": "flight record",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%209/EFTA00313875.pdf",
       "document_title": "EFTA00313875 — Hyperion Air Passenger Manifests 2012",
       "quote_snippet": "Larry Visoski testified he served as Epstein's personal pilot for approximately 25 years."
     },
     {
-      "id": "e-epstein-rodgers", "source": "epstein", "target": "rodgers",
+      "id": "e-epstein-rodgers",
+      "source": "epstein",
+      "target": "rodgers",
       "connection_type": "flight record",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%209/EFTA00313875.pdf",
       "document_title": "EFTA00313875 — Hyperion Air Passenger Manifests, Flight Logs",
       "quote_snippet": "David Rodgers maintained handwritten flight logs for Epstein's aircraft."
     },
     {
-      "id": "e-epstein-alessi", "source": "epstein", "target": "alessi",
+      "id": "e-epstein-alessi",
+      "source": "epstein",
+      "target": "alessi",
       "connection_type": "testimony mention",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "United States v. Maxwell — Trial Transcript, Testimony of Juan Alessi",
       "quote_snippet": "Juan Alessi testified he worked as house manager at Epstein's Palm Beach residence for approximately eleven years."
     },
     {
-      "id": "e-epstein-rodriguez", "source": "epstein", "target": "rodriguez",
+      "id": "e-epstein-rodriguez",
+      "source": "epstein",
+      "target": "rodriguez",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "SDFL Case Records — Alfredo Rodriguez Obstruction Case",
       "quote_snippet": "Alfredo Rodriguez convicted of obstruction of justice for attempting to sell Epstein's personal phone directory."
     },
     {
-      "id": "e-epstein-robson", "source": "epstein", "target": "robson",
+      "id": "e-epstein-robson",
+      "source": "epstein",
+      "target": "robson",
       "connection_type": "testimony mention",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "United States v. Maxwell — Trial Transcript, Testimony of Haley Robson",
       "quote_snippet": "Haley Robson testified about being recruited and subsequently recruiting other girls to provide massages at Epstein's Palm Beach residence."
     },
     {
-      "id": "e-epstein-giuffre", "source": "epstein", "target": "giuffre",
+      "id": "e-epstein-giuffre",
+      "source": "epstein",
+      "target": "giuffre",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "United States v. Maxwell — Superseding Indictment (S2 20 Cr. 330)",
@@ -141,380 +441,486 @@
       "page": 5
     },
     {
-      "id": "e-epstein-farmer", "source": "epstein", "target": "farmer",
+      "id": "e-epstein-farmer",
+      "source": "epstein",
+      "target": "farmer",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "United States v. Maxwell — Superseding Indictment",
       "quote_snippet": "Maria Farmer identified as a victim who reported abuse by Epstein and Maxwell to the FBI in 1996."
     },
     {
-      "id": "e-epstein-ward", "source": "epstein", "target": "ward",
+      "id": "e-epstein-ward",
+      "source": "epstein",
+      "target": "ward",
       "connection_type": "testimony mention",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "United States v. Maxwell — Trial Transcript, Testimony of Annie Farmer",
       "quote_snippet": "Annie Farmer testified that Maxwell and Epstein sexually abused her when she was sixteen years old during a visit to Epstein's New Mexico ranch."
     },
     {
-      "id": "e-epstein-ransome", "source": "epstein", "target": "ransome",
+      "id": "e-epstein-ransome",
+      "source": "epstein",
+      "target": "ransome",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "Ransome v. Maxwell — Civil Complaint (SDNY)",
       "quote_snippet": "Sarah Ransome filed a civil suit detailing allegations of sexual abuse by Epstein on his private island."
     },
     {
-      "id": "e-epstein-araoz", "source": "epstein", "target": "araoz",
+      "id": "e-epstein-araoz",
+      "source": "epstein",
+      "target": "araoz",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "SDNY Victim Impact Statements — Jennifer Araoz",
       "quote_snippet": "Jennifer Araoz submitted a victim impact statement describing abuse by Epstein beginning when she was fourteen years old."
     },
     {
-      "id": "e-epstein-edwards", "source": "epstein", "target": "edwards",
+      "id": "e-epstein-edwards",
+      "source": "epstein",
+      "target": "edwards",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "Doe v. United States — CVRA Litigation (SDFL)",
       "quote_snippet": "Attorney Bradley Edwards filed a Crime Victims' Rights Act suit challenging the Epstein Non-Prosecution Agreement on behalf of victims."
     },
     {
-      "id": "e-epstein-villafana", "source": "epstein", "target": "villafana",
+      "id": "e-epstein-villafana",
+      "source": "epstein",
+      "target": "villafana",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "DOJ OPR Review — Epstein Non-Prosecution Agreement",
       "quote_snippet": "AUSA Marie Villafana handled the original federal investigation and negotiation of the Non-Prosecution Agreement with Epstein's counsel."
     },
     {
-      "id": "e-epstein-comey_m", "source": "epstein", "target": "comey_m",
+      "id": "e-epstein-comey_m",
+      "source": "epstein",
+      "target": "comey_m",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "United States v. Maxwell — Case Docket, Prosecution Team",
       "quote_snippet": "AUSA Maurene Comey served as a member of the prosecution team in United States v. Ghislaine Maxwell."
     },
     {
-      "id": "e-epstein-strauss", "source": "epstein", "target": "strauss",
+      "id": "e-epstein-strauss",
+      "source": "epstein",
+      "target": "strauss",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "DOJ Press Release — Maxwell Arrest Announcement",
       "quote_snippet": "Acting United States Attorney Audrey Strauss announced the arrest and indictment of Ghislaine Maxwell."
     },
     {
-      "id": "e-maxwell-kellen", "source": "maxwell", "target": "kellen",
+      "id": "e-maxwell-kellen",
+      "source": "maxwell",
+      "target": "kellen",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "United States v. Maxwell — Indictment",
       "quote_snippet": "Sarah Kellen referenced in Maxwell indictment as an associate who assisted in scheduling victims for Epstein."
     },
     {
-      "id": "e-maxwell-giuffre", "source": "maxwell", "target": "giuffre",
+      "id": "e-maxwell-giuffre",
+      "source": "maxwell",
+      "target": "giuffre",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "United States v. Maxwell — Superseding Indictment",
       "quote_snippet": "Maxwell recruited and groomed Virginia Giuffre for sexual abuse by Epstein."
     },
     {
-      "id": "e-maxwell-alessi", "source": "maxwell", "target": "alessi",
+      "id": "e-maxwell-alessi",
+      "source": "maxwell",
+      "target": "alessi",
       "connection_type": "testimony mention",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "United States v. Maxwell — Testimony of Juan Alessi",
       "quote_snippet": "Alessi testified that Maxwell directed household operations and managed access to Epstein's Palm Beach residence."
     },
     {
-      "id": "e-giuffre-brunel", "source": "giuffre", "target": "brunel",
+      "id": "e-giuffre-brunel",
+      "source": "giuffre",
+      "target": "brunel",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "Court filings referencing Jean-Luc Brunel",
       "quote_snippet": "Virginia Giuffre alleged in court filings that Brunel provided young girls to Epstein through his modeling agency."
     },
     {
-      "id": "e-visoski-rodgers", "source": "visoski", "target": "rodgers",
+      "id": "e-visoski-rodgers",
+      "source": "visoski",
+      "target": "rodgers",
       "connection_type": "flight record",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%209/EFTA00313875.pdf",
       "document_title": "EFTA00313875 — Hyperion Air Manifests",
       "quote_snippet": "Both Larry Visoski and David Rodgers identified in flight logs as pilots of Epstein's aircraft."
     },
-
     {
-      "id": "e-epstein-karyna", "source": "epstein", "target": "karyna",
+      "id": "e-epstein-karyna",
+      "source": "epstein",
+      "target": "karyna",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01961642.pdf",
       "document_title": "EFTA01961642 — August 2013 Flight Schedule",
       "quote_snippet": "7:00pm Wheels up to the island with Karyna. Atlantic Aviation TEB, 233 Industrial Ave, Teterboro, NJ."
     },
     {
-      "id": "e-epstein-fiona", "source": "epstein", "target": "fiona",
+      "id": "e-epstein-fiona",
+      "source": "epstein",
+      "target": "fiona",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01961642.pdf",
       "document_title": "EFTA01961642 — August 2013 Schedule",
       "quote_snippet": "TBD TENTATIVE Fiona Cameron-Williams at 71st (~1). Fiona Cameron-Williams at the house."
     },
     {
-      "id": "e-epstein-kahn", "source": "epstein", "target": "kahn",
+      "id": "e-epstein-kahn",
+      "source": "epstein",
+      "target": "kahn",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01961642.pdf",
       "document_title": "EFTA01961642 — August 2013 Schedule",
       "quote_snippet": "Reminder: Rich Kahn on holiday Aug. 28, 29, 30. Back to work on Sept 3."
     },
     {
-      "id": "e-epstein-bella", "source": "epstein", "target": "bella",
+      "id": "e-epstein-bella",
+      "source": "epstein",
+      "target": "bella",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "Karyna Investigation — EFTA00574595 kitten deposit email",
       "quote_snippet": "Kitten deposit via Bella Klein — financial coordination for payments and transfers."
     },
     {
-      "id": "e-epstein-bussue", "source": "epstein", "target": "bussue",
+      "id": "e-epstein-bussue",
+      "source": "epstein",
+      "target": "bussue",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/EFTA01807092.pdf",
       "document_title": "EFTA01807092 — June 18, 2019 Hurricane Shutters",
       "quote_snippet": "Generator Room Hurricane Shutters photos taken 2:00 PM June 18, 2019. Infrastructure inspection while Epstein in Paris."
     },
     {
-      "id": "e-epstein-fontanilla", "source": "epstein", "target": "fontanilla",
+      "id": "e-epstein-fontanilla",
+      "source": "epstein",
+      "target": "fontanilla",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01961642.pdf",
       "document_title": "EFTA01961642 — August 2013 Email Header",
       "quote_snippet": "Cc: Luciano Fontanilla. Email from Lesley Groff to Epstein Jeffrey with travel schedule."
     },
     {
-      "id": "e-epstein-richardson", "source": "epstein", "target": "richardson",
+      "id": "e-epstein-richardson",
+      "source": "epstein",
+      "target": "richardson",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%2010/EFTA02043007.pdf",
       "document_title": "EFTA02043007 — Richardson Dinner Sept 19, 2016",
       "quote_snippet": "Reconfirming Gov Richardson will come see Jeffrey for dinner tonight at 7pm!"
     },
     {
-      "id": "e-epstein-siegal", "source": "epstein", "target": "siegal",
+      "id": "e-epstein-siegal",
+      "source": "epstein",
+      "target": "siegal",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01961642.pdf",
       "document_title": "EFTA01961642 — August 2013 Calendar Reminder",
       "quote_snippet": "Reminder Call Bill Richardson, Peggy Siegal, Tom Pritzker. August 29, 2013."
     },
     {
-      "id": "e-epstein-pritzker", "source": "epstein", "target": "pritzker",
+      "id": "e-epstein-pritzker",
+      "source": "epstein",
+      "target": "pritzker",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01961642.pdf",
       "document_title": "EFTA01961642 — August 2013 Calendar Reminder",
       "quote_snippet": "Reminder Call Bill Richardson, Peggy Siegal, Tom Pritzker. August 29, 2013 — ISLAND."
     },
     {
-      "id": "e-epstein-leon_black", "source": "epstein", "target": "leon_black",
+      "id": "e-epstein-leon_black",
+      "source": "epstein",
+      "target": "leon_black",
       "connection_type": "financial record",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "Southern Trust Company — Deutsche Bank Records",
       "quote_snippet": "$5M, $7M, $13M, $15M, $20M payments through Southern Trust from Black Family Partners, LP (2014–2015)."
     },
     {
-      "id": "e-epstein-wexner", "source": "epstein", "target": "wexner",
+      "id": "e-epstein-wexner",
+      "source": "epstein",
+      "target": "wexner",
       "connection_type": "financial record",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "DOJ Case Files — Financial Relationship Records",
       "quote_snippet": "Les Wexner granted Epstein broad power of attorney over his financial affairs. Wexner gifted the 71st Street Manhattan mansion to Epstein."
     },
     {
-      "id": "e-epstein-indyke", "source": "epstein", "target": "indyke",
+      "id": "e-epstein-indyke",
+      "source": "epstein",
+      "target": "indyke",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "The Haze Trust & LSJE LLC — Formation Documents",
       "quote_snippet": "Trustees: Jeffrey Epstein & Darren K. Indyke. The Haze Trust created Feb 9, 1999. LSJE LLC formed October 27, 2011, Agent: Darren K. Indyke."
     },
     {
-      "id": "e-epstein-joslin", "source": "epstein", "target": "joslin",
+      "id": "e-epstein-joslin",
+      "source": "epstein",
+      "target": "joslin",
       "connection_type": "financial record",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "Black Family Partners — Financial Transaction Records",
       "quote_snippet": "Richard Joslin coordinated multiple $5M–$20M transfers between Black Family Partners LP and Southern Trust Company (2014–2015)."
     },
     {
-      "id": "e-epstein-dershowitz", "source": "epstein", "target": "dershowitz",
+      "id": "e-epstein-dershowitz",
+      "source": "epstein",
+      "target": "dershowitz",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "Court filings — Giuffre v. Maxwell, Dershowitz references",
       "quote_snippet": "Alan Dershowitz named in court filings as member of Epstein legal defense team and in victim allegations."
     },
     {
-      "id": "e-epstein-bergman", "source": "epstein", "target": "bergman",
+      "id": "e-epstein-bergman",
+      "source": "epstein",
+      "target": "bergman",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%209/EFTA00813339.pdf",
       "document_title": "EFTA00813339 — Mickey Bergman Follow-up Oct 27, 2016",
       "quote_snippet": "Mickey called to follow up on this on behalf of Governor Richardson. Wanted to follow up with the proposal and note from Governor Richardson to Jeffrey."
     },
     {
-      "id": "e-epstein-pickett", "source": "epstein", "target": "pickett",
+      "id": "e-epstein-pickett",
+      "source": "epstein",
+      "target": "pickett",
       "connection_type": "flight record",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "Flight Records — Aircraft N212JE and N304HE",
       "quote_snippet": "Charles 'Chip' Pickett III identified as pilot of N212JE (primary black jet) and other Epstein aircraft."
     },
     {
-      "id": "e-epstein-dasha", "source": "epstein", "target": "dasha",
+      "id": "e-epstein-dasha",
+      "source": "epstein",
+      "target": "dasha",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/EFTA02287712.pdf",
       "document_title": "EFTA02287712 — Welcome Letter 2G Apartment",
       "quote_snippet": "Welcome letter prepared for Dasha Burak arrival at 2G apartment, 301 East 66th Street NYC, June 1, 2019 — 5 days before Epstein's arrest."
     },
     {
-      "id": "e-epstein-lundeg", "source": "epstein", "target": "lundeg",
+      "id": "e-epstein-lundeg",
+      "source": "epstein",
+      "target": "lundeg",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "DOJ Files — Purevsuren Lundeg Correspondence (139 docs)",
       "quote_snippet": "Purevsuren Lundeg documented in 139 files — Mongolian contact with Geneva and Paris meetings spanning 2015–2019."
     },
     {
-      "id": "e-epstein-barak", "source": "epstein", "target": "barak",
+      "id": "e-epstein-barak",
+      "source": "epstein",
+      "target": "barak",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "DOJ Case Files — Ehud Barak Property Visits",
       "quote_snippet": "Former Israeli Prime Minister Ehud Barak documented visiting Epstein properties including the Manhattan residence."
     },
     {
-      "id": "e-epstein-fenn", "source": "epstein", "target": "fenn",
+      "id": "e-epstein-fenn",
+      "source": "epstein",
+      "target": "fenn",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01961642.pdf",
       "document_title": "EFTA01961642 — August 2013 Schedule",
       "quote_snippet": "11:00am JE to call Patrick Fenn. Monday August 26, 2013 — ISLAND."
     },
-
     {
-      "id": "e-karyna-groff", "source": "karyna", "target": "groff",
+      "id": "e-karyna-groff",
+      "source": "karyna",
+      "target": "groff",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/EFTA02329971.pdf",
       "document_title": "EFTA02329971 — Passport Coordination Oct 2016",
       "quote_snippet": "Karyna Shuliak and Lesley Groff coordinated passport logistics. Both served as peer executive assistants managing operations across properties."
     },
     {
-      "id": "e-karyna-bella", "source": "karyna", "target": "bella",
+      "id": "e-karyna-bella",
+      "source": "karyna",
+      "target": "bella",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/EFTA00574595.pdf",
       "document_title": "EFTA00574595 — Aug 2015 Kitten Deposit",
       "quote_snippet": "Kitten deposit arranged via Bella Klein. Karyna coordinated with Bella on financial payments and procurement."
     },
     {
-      "id": "e-karyna-bussue", "source": "karyna", "target": "bussue",
+      "id": "e-karyna-bussue",
+      "source": "karyna",
+      "target": "bussue",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/EFTA01807092.pdf",
       "document_title": "EFTA01807092 — June 18, 2019 Island Inspection",
       "quote_snippet": "Karyna and Cashkim Bussue documented infrastructure inspection on island June 18, 2019 while Epstein was in Paris."
     },
     {
-      "id": "e-karyna-fontanilla", "source": "karyna", "target": "fontanilla",
+      "id": "e-karyna-fontanilla",
+      "source": "karyna",
+      "target": "fontanilla",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01961642.pdf",
       "document_title": "EFTA01961642 — Email CC list",
       "quote_snippet": "Both Karyna and Luciano Fontanilla CC'd on Epstein travel schedule emails from Lesley Groff."
     },
     {
-      "id": "e-richardson-groff", "source": "richardson", "target": "groff",
+      "id": "e-richardson-groff",
+      "source": "richardson",
+      "target": "groff",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%209/EFTA00708292.pdf",
       "document_title": "EFTA00708292 — Richardson Contact April 12, 2011",
       "quote_snippet": "LM for Bill Richardson on his personal cell. Janis says Richardson is traveling today. Coordinated by Lesley Groff."
     },
     {
-      "id": "e-richardson-bergman", "source": "richardson", "target": "bergman",
+      "id": "e-richardson-bergman",
+      "source": "richardson",
+      "target": "bergman",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%209/EFTA00813339.pdf",
       "document_title": "EFTA00813339 — Bergman Follow-up Oct 2016",
       "quote_snippet": "Mickey called to follow up on this on behalf of Governor Richardson. Wanted to follow up with the proposal."
     },
     {
-      "id": "e-siegal-maxwell", "source": "siegal", "target": "maxwell",
+      "id": "e-siegal-maxwell",
+      "source": "siegal",
+      "target": "maxwell",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "DOJ Files — 2011 Epstein Mansion Event",
       "quote_snippet": "Peggy Siegal organized 2011 event at Epstein mansion. Guests included Prince Andrew, Stephanopoulos, Couric. Maxwell attended."
     },
     {
-      "id": "e-pritzker-giuffre", "source": "pritzker", "target": "giuffre",
+      "id": "e-pritzker-giuffre",
+      "source": "pritzker",
+      "target": "giuffre",
       "connection_type": "testimony mention",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "Virginia Giuffre 2016 Deposition",
       "quote_snippet": "Tom Pritzker named in Virginia Giuffre testimony (2016) — accused under oath of sexual coercion. Pritzker vehemently denies allegations."
     },
     {
-      "id": "e-leon_black-indyke", "source": "leon_black", "target": "indyke",
+      "id": "e-leon_black-indyke",
+      "source": "leon_black",
+      "target": "indyke",
       "connection_type": "financial record",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "Southern Trust Company — Financial Records",
       "quote_snippet": "Apollo Management transactions routed through Southern Trust Company managed by Darren Indyke. $5M–$20M payments 2014–2015."
     },
     {
-      "id": "e-leon_black-joslin", "source": "leon_black", "target": "joslin",
+      "id": "e-leon_black-joslin",
+      "source": "leon_black",
+      "target": "joslin",
       "connection_type": "financial record",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "Black Family Partners — Transaction Records",
       "quote_snippet": "Richard Joslin served as financial coordinator for Black Family Partners LP, managing transfers to Epstein entities."
     },
     {
-      "id": "e-dershowitz-giuffre", "source": "dershowitz", "target": "giuffre",
+      "id": "e-dershowitz-giuffre",
+      "source": "dershowitz",
+      "target": "giuffre",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "Giuffre v. Maxwell — Court Filings",
       "quote_snippet": "Alan Dershowitz named in Virginia Giuffre civil filings. Dershowitz denied all allegations and counter-sued."
     },
     {
-      "id": "e-dershowitz-maxwell", "source": "dershowitz", "target": "maxwell",
+      "id": "e-dershowitz-maxwell",
+      "source": "dershowitz",
+      "target": "maxwell",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "Legal Proceedings — Maxwell Related Filings",
       "quote_snippet": "Dershowitz named alongside Maxwell in multiple court filings related to the Epstein case."
     },
     {
-      "id": "e-pickett-visoski", "source": "pickett", "target": "visoski",
+      "id": "e-pickett-visoski",
+      "source": "pickett",
+      "target": "visoski",
       "connection_type": "flight record",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "Flight Records — Pilot Roster",
       "quote_snippet": "Charles Pickett III, Larry Visoski, and David Rodgers served as pilots for Epstein's aircraft fleet."
     },
     {
-      "id": "e-pickett-rodgers", "source": "pickett", "target": "rodgers",
+      "id": "e-pickett-rodgers",
+      "source": "pickett",
+      "target": "rodgers",
       "connection_type": "flight record",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "Flight Records — Pilot Roster",
       "quote_snippet": "Pickett and Rodgers both identified in flight manifests as pilots of Epstein's aircraft including N212JE."
     },
     {
-      "id": "e-dasha-groff", "source": "dasha", "target": "groff",
+      "id": "e-dasha-groff",
+      "source": "dasha",
+      "target": "groff",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/EFTA02287444.pdf",
       "document_title": "EFTA02287444 — Dasha June 2-3, 2019 Emails",
       "quote_snippet": "Dasha Burak arrival coordinated through Lesley Groff. Electrical issues, towel requests, flight changes at 2G apartment."
     },
     {
-      "id": "e-dasha-bella", "source": "dasha", "target": "bella",
+      "id": "e-dasha-bella",
+      "source": "dasha",
+      "target": "bella",
       "connection_type": "financial record",
       "doj_link": "https://www.justice.gov/epstein/files/EFTA01004295.pdf",
       "document_title": "EFTA01004295 — Wire Transfer via Dasha",
       "quote_snippet": "Dasha Burak used as intermediary for money transfer to Russia. Payments coordinated through Bella Klein."
     },
     {
-      "id": "e-barak-maxwell", "source": "barak", "target": "maxwell",
+      "id": "e-barak-maxwell",
+      "source": "barak",
+      "target": "maxwell",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "DOJ Files — Associate References",
       "quote_snippet": "Ehud Barak documented in association with both Epstein and Maxwell at Epstein properties."
     },
     {
-      "id": "e-wexner-maxwell", "source": "wexner", "target": "maxwell",
+      "id": "e-wexner-maxwell",
+      "source": "wexner",
+      "target": "maxwell",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "DOJ Case Files — Wexner-Maxwell Connection",
       "quote_snippet": "Les Wexner and Ghislaine Maxwell both named as associates of Epstein in overlapping social and financial circles."
     },
     {
-      "id": "e-fiona-groff", "source": "fiona", "target": "groff",
+      "id": "e-fiona-groff",
+      "source": "fiona",
+      "target": "groff",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01961642.pdf",
       "document_title": "EFTA01961642 — August 2013 Schedule",
       "quote_snippet": "Fiona Cameron-Williams scheduled by Lesley Groff for 71st Street property management tasks."
     },
     {
-      "id": "e-indyke-kahn", "source": "indyke", "target": "kahn",
+      "id": "e-indyke-kahn",
+      "source": "indyke",
+      "target": "kahn",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/epstein",
       "document_title": "301 East 66th Street — Building Records",
       "quote_snippet": "Darren Indyke PLLC offices at 10B, Richard Kahn receives maintenance checks for 10N. Both at 301 East 66th Street."
     },
     {
-      "id": "e-maxwell-brunel", "source": "maxwell", "target": "brunel",
+      "id": "e-maxwell-brunel",
+      "source": "maxwell",
+      "target": "brunel",
       "connection_type": "named in document",
       "doj_link": "https://www.justice.gov/usao-sdny/united-states-v-ghislaine-maxwell",
       "document_title": "Maxwell Trial — Brunel References",

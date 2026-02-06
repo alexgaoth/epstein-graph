@@ -8,6 +8,8 @@ export interface GraphNode {
   label: string;
   role?: string;
   group?: string;
+  gender?: 'male' | 'female';
+  image?: string;
   x?: number;
   y?: number;
   size?: number;

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useCallback } from 'react';
 import Graph from 'graphology';
 import Sigma from 'sigma';
+import getNodeImageProgram from 'sigma/rendering/webgl/programs/node.image';
 import forceAtlas2 from 'graphology-layout-forceatlas2';
 import { useGraphStore } from '../store/graphStore';
 import {
@@ -140,14 +141,23 @@ export default function GraphContainer() {
       .then((data: GraphData) => {
         setGraphData(data);
 
-        // Add nodes with initial random positions
+        // Add nodes with initial random positions and images
+        const defaultMale = '/data/images/default-male.svg';
+        const defaultFemale = '/data/images/default-female.svg';
+
         for (const node of data.nodes) {
+          const imgUrl = node.image
+            ? `/data/images/${node.image}`
+            : (node.gender === 'female' ? defaultFemale : defaultMale);
+
           graph.addNode(node.id, {
             label: node.label,
             x: (node.x ?? (Math.random() - 0.5) * 100) + (Math.random() - 0.5) * 5,
             y: (node.y ?? (Math.random() - 0.5) * 100) + (Math.random() - 0.5) * 5,
             size: 5, // placeholder — computed after edges are added
             color: nodeColorFromGroup(node.group),
+            type: 'image',
+            image: imgUrl,
             // Store metadata
             nodeRole: node.role || '',
             nodeType: node.type || 'person',
@@ -221,8 +231,12 @@ export default function GraphContainer() {
         }, 2500);
       });
 
-    // Initialize Sigma with WebGL renderer
+    // Initialize Sigma with WebGL renderer + image node program
+    const NodeImageProgram = getNodeImageProgram();
     const sigma = new Sigma(graph, containerRef.current, {
+      nodeProgramClasses: {
+        image: NodeImageProgram,
+      },
       renderLabels: true,
       labelFont: 'Inter, system-ui, sans-serif',
       labelSize: 12,
@@ -296,27 +310,16 @@ export default function GraphContainer() {
       },
 
       /**
-       * Edge reducer: hover-only edge highlighting.
+       * Edge reducer: highlight edges ONLY on direct hover.
        * - Hover node: highlight all connected edges
        * - Hover edge: highlight that single edge
-       * - Selected node: fade non-connected edges (no bright highlighting)
-       * - Default: standard computed sizes and colors
+       * - No hover: all edges stay at default computed size/color
        */
       edgeReducer: (edge, data) => {
         const res = { ...data };
         const hovered = hoveredNodeRef.current;
         const hoveredE = hoveredEdgeRef.current;
-        const selected = selectedNodeRef.current;
 
-        // Selection-based fading (base layer)
-        if (selected) {
-          const connectedEdges = getConnectedEdges(graph, selected);
-          if (!connectedEdges.has(edge)) {
-            res.color = COLORS.edgeFaded;
-          }
-        }
-
-        // Hover highlights (override layer)
         if (hovered) {
           const connectedEdges = getConnectedEdges(graph, hovered);
           if (connectedEdges.has(edge)) {
@@ -357,24 +360,28 @@ export default function GraphContainer() {
 
     // Hover events for tooltip + edge highlighting
     sigma.on('enterNode', ({ node }) => {
+      hoveredNodeRef.current = node;
       setHoveredNode(node);
       containerRef.current!.style.cursor = 'pointer';
       sigma.refresh();
     });
 
     sigma.on('leaveNode', () => {
+      hoveredNodeRef.current = null;
       setHoveredNode(null);
       containerRef.current!.style.cursor = 'default';
       sigma.refresh();
     });
 
     sigma.on('enterEdge', ({ edge }) => {
+      hoveredEdgeRef.current = edge;
       setHoveredEdge(edge);
       containerRef.current!.style.cursor = 'pointer';
       sigma.refresh();
     });
 
     sigma.on('leaveEdge', () => {
+      hoveredEdgeRef.current = null;
       setHoveredEdge(null);
       containerRef.current!.style.cursor = 'default';
       sigma.refresh();

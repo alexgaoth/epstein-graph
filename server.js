@@ -11,6 +11,10 @@ const PORT = process.env.PORT || 3000;
 // Serve Vite build output
 app.use(express.static(join(__dirname, 'dist')));
 
+// Serve Railway volume images (fallback for persistent storage)
+const VOLUME_PATH = process.env.RAILWAY_VOLUME_MOUNT_PATH || '/images';
+app.use('/data/images', express.static(VOLUME_PATH));
+
 // SPA fallback — serve index.html for all non-file routes
 app.get('*', (_req, res) => {
   res.sendFile(join(__dirname, 'dist', 'index.html'));

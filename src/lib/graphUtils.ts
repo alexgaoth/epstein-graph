@@ -33,10 +33,10 @@ export const SIZING = {
   nodeScaleFactor: 3.5,
   minNodeSize: 4,
   maxNodeSize: 28,
-  baseEdgeSize: 0.4,
-  edgeScaleFactor: 0.08,
+  baseEdgeSize: 0.5,
+  edgeScaleFactor: 0.18,
   minEdgeSize: 0.3,
-  maxEdgeSize: 3,
+  maxEdgeSize: 6,
 } as const;
 
 /** Camera animation defaults */

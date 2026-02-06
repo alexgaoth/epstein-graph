@@ -6,7 +6,16 @@
       "Bash(npm test)",
       "Bash(timeout:*)",
       "Bash(node -e:*)",
-      "Bash(bash doj-search.sh:*)"
+      "Bash(bash doj-search.sh:*)",
+      "Bash(railway status:*)",
+      "Bash(railway service:*)",
+      "Bash(railway:*)",
+      "Bash(curl:*)",
+      "Bash(printf:*)",
+      "Bash(where:*)",
+      "WebSearch",
+      "WebFetch(domain:commons.wikimedia.org)",
+      "Bash(node:*)"
     ]
   }
 }
