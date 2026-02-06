@@ -3,17 +3,26 @@ import Graph from 'graphology';
 import Sigma from 'sigma';
 import forceAtlas2 from 'graphology-layout-forceatlas2';
 import { useGraphStore } from '../store/graphStore';
-import { COLORS, SIZES, CAMERA } from '../lib/graphUtils';
+import {
+  COLORS,
+  CAMERA,
+  DEFAULT_NODE_COLOR,
+  nodeSizeFromDegree,
+  edgeSizeFromNodes,
+  nodeColorFromGroup,
+} from '../lib/graphUtils';
 import type { GraphData } from '../types/graph';
 
 /**
  * Core graph visualization component.
  * Initializes Sigma.js v2 with WebGL rendering and ForceAtlas2 layout.
  * Implements:
- *   - Force-directed layout with animated settling
- *   - Click-to-center camera animation via sigma.getCamera().animate()
- *   - Node/edge focus highlighting with neighbor emphasis
- *   - Hover tooltips via enterNode/leaveNode events
+ *   - Force-directed layout with gentle animated settling
+ *   - Degree-based node sizing (more connected = bigger)
+ *   - Group-based node coloring (default white)
+ *   - Edge thickness from smaller connected node
+ *   - Click-to-center camera animation
+ *   - Hover-only edge highlighting (node hover + edge hover)
  */
 export default function GraphContainer() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -26,6 +35,7 @@ export default function GraphContainer() {
     selectedNode,
     selectedEdge,
     hoveredNode,
+    hoveredEdge,
     selectNode,
     selectEdge,
     setHoveredNode,
@@ -37,16 +47,12 @@ export default function GraphContainer() {
   const selectedNodeRef = useRef(selectedNode);
   const hoveredNodeRef = useRef(hoveredNode);
   const selectedEdgeRef = useRef(selectedEdge);
+  const hoveredEdgeRef = useRef(hoveredEdge);
 
-  useEffect(() => {
-    selectedNodeRef.current = selectedNode;
-  }, [selectedNode]);
-  useEffect(() => {
-    hoveredNodeRef.current = hoveredNode;
-  }, [hoveredNode]);
-  useEffect(() => {
-    selectedEdgeRef.current = selectedEdge;
-  }, [selectedEdge]);
+  useEffect(() => { selectedNodeRef.current = selectedNode; }, [selectedNode]);
+  useEffect(() => { hoveredNodeRef.current = hoveredNode; }, [hoveredNode]);
+  useEffect(() => { selectedEdgeRef.current = selectedEdge; }, [selectedEdge]);
+  useEffect(() => { hoveredEdgeRef.current = hoveredEdge; }, [hoveredEdge]);
 
   /** Compute neighbor set for a given node */
   const getNeighbors = useCallback((graph: Graph, nodeId: string): Set<string> => {
@@ -69,14 +75,12 @@ export default function GraphContainer() {
 
   /**
    * Animate camera to center on a node.
-   * Uses sigma.getCamera().animate() with quadraticOut easing
-   * for smooth, Quartz-like transitions.
+   * Uses sigma.getCamera().animate() with quadraticOut easing.
    */
   const centerOnNode = useCallback((sigma: Sigma, nodeId: string) => {
     const nodeDisplayData = sigma.getNodeDisplayData(nodeId);
     if (!nodeDisplayData) return;
 
-    // Animate camera to center the node with comfortable zoom
     sigma.getCamera().animate(
       { x: nodeDisplayData.x, y: nodeDisplayData.y, ratio: CAMERA.focusRatio },
       { duration: CAMERA.duration, easing: CAMERA.easing },
@@ -88,7 +92,6 @@ export default function GraphContainer() {
     const sigma = sigmaRef.current;
     if (!sigma) return;
 
-    // Center on Epstein node at overview zoom
     const epsteinData = sigma.getNodeDisplayData('epstein');
     if (epsteinData) {
       sigma.getCamera().animate(
@@ -137,18 +140,18 @@ export default function GraphContainer() {
       .then((data: GraphData) => {
         setGraphData(data);
 
-        // Add nodes
+        // Add nodes with initial random positions
         for (const node of data.nodes) {
-          const isCentral = node.id === 'epstein';
           graph.addNode(node.id, {
             label: node.label,
             x: (node.x ?? (Math.random() - 0.5) * 100) + (Math.random() - 0.5) * 5,
             y: (node.y ?? (Math.random() - 0.5) * 100) + (Math.random() - 0.5) * 5,
-            size: isCentral ? SIZES.centralNode : SIZES.defaultNode,
-            color: isCentral ? COLORS.centralNode : COLORS.nodeDefault,
+            size: 5, // placeholder — computed after edges are added
+            color: nodeColorFromGroup(node.group),
             // Store metadata
             nodeRole: node.role || '',
             nodeType: node.type || 'person',
+            nodeGroup: node.group || '',
           });
         }
 
@@ -157,7 +160,7 @@ export default function GraphContainer() {
           if (graph.hasNode(edge.source) && graph.hasNode(edge.target)) {
             graph.addEdgeWithKey(edge.id, edge.source, edge.target, {
               color: COLORS.edgeDefault,
-              size: SIZES.defaultEdge,
+              size: 0.5, // placeholder — computed after node sizes
               // Store metadata
               connectionType: edge.connection_type,
               dojLink: edge.doj_link,
@@ -167,21 +170,33 @@ export default function GraphContainer() {
           }
         }
 
-        // Run ForceAtlas2 layout iteratively for animated settling effect.
-        // Each iteration modifies node positions; Sigma re-renders automatically.
+        // Compute degree-based node sizes
+        graph.forEachNode((nodeId) => {
+          const degree = graph.degree(nodeId);
+          graph.setNodeAttribute(nodeId, 'size', nodeSizeFromDegree(degree));
+        });
+
+        // Compute edge sizes from smaller connected node
+        graph.forEachEdge((edgeId, _attrs, source, target) => {
+          const sourceSize = graph.getNodeAttribute(source, 'size') as number;
+          const targetSize = graph.getNodeAttribute(target, 'size') as number;
+          graph.setEdgeAttribute(edgeId, 'size', edgeSizeFromNodes(sourceSize, targetSize));
+        });
+
+        // Gentler ForceAtlas2 layout — reduced shake on initial load
         const settings = forceAtlas2.inferSettings(graph);
-        settings.gravity = 0.5;
-        settings.scalingRatio = 20;
-        settings.strongGravityMode = true;
+        settings.gravity = 0.08;
+        settings.scalingRatio = 6;
+        settings.strongGravityMode = false;
         settings.barnesHutOptimize = true;
+        settings.slowDown = 8;
 
         let iterations = 0;
-        const maxIterations = 180;
+        const maxIterations = 200;
         layoutRunningRef.current = true;
 
         function layoutStep() {
           if (iterations < maxIterations && layoutRunningRef.current) {
-            // Run 1 iteration per frame for smooth visual settling
             forceAtlas2.assign(graph, { settings, iterations: 1 });
             iterations++;
             animFrameRef.current = requestAnimationFrame(layoutStep);
@@ -203,7 +218,7 @@ export default function GraphContainer() {
               );
             }
           }
-        }, 2000);
+        }, 2500);
       });
 
     // Initialize Sigma with WebGL renderer
@@ -213,8 +228,8 @@ export default function GraphContainer() {
       labelSize: 12,
       labelWeight: '300',
       labelColor: { color: COLORS.labelColor },
-      labelRenderedSizeThreshold: 14, // Hide labels by default (only large/focused nodes show)
-      defaultNodeColor: COLORS.nodeDefault,
+      labelRenderedSizeThreshold: 14,
+      defaultNodeColor: DEFAULT_NODE_COLOR,
       defaultEdgeColor: COLORS.edgeDefault,
       defaultEdgeType: 'line',
       enableEdgeClickEvents: true,
@@ -228,49 +243,46 @@ export default function GraphContainer() {
       zIndex: true,
 
       /**
-       * Node reducer: dynamically styles each node based on current focus state.
-       * - Selected node: large + bright accent color + forced label
-       * - Neighbor of selected: medium size + neighbor color + forced label
-       * - Non-neighbor when something is selected: faded
-       * - Hovered node: forced label
-       * - Default: standard styling
+       * Node reducer: dynamically styles each node based on current state.
+       * Selection fades non-neighbors for focus.
+       * Hover enlarges the hovered node and shows neighbor labels.
        */
       nodeReducer: (node, data) => {
         const res = { ...data };
         const selected = selectedNodeRef.current;
         const hovered = hoveredNodeRef.current;
 
+        // Selection focus: fade non-neighbors (base layer)
         if (selected) {
           if (node === selected) {
-            res.size = SIZES.focusedNode;
-            res.color = COLORS.nodeHighlight;
             res.forceLabel = true;
             res.zIndex = 2;
+            res.size = (data.size || 5) * 1.3;
           } else {
             const neighbors = getNeighbors(graph, selected);
             if (neighbors.has(node)) {
-              res.size = SIZES.neighborNode;
-              res.color = COLORS.nodeNeighbor;
               res.forceLabel = true;
               res.zIndex = 1;
             } else {
-              res.size = SIZES.fadedNode;
               res.color = COLORS.nodeFaded;
               res.label = '';
               res.zIndex = 0;
             }
           }
-        } else if (hovered) {
+        }
+
+        // Hover highlights (override layer — restores faded nodes if hovered)
+        if (hovered) {
           if (node === hovered) {
             res.forceLabel = true;
             res.zIndex = 2;
-            res.color = COLORS.nodeHighlight;
-            res.size = (data.size || SIZES.defaultNode) * 1.3;
+            res.size = (data.size || 5) * 1.3;
+            res.color = data.color; // Restore original color even if faded by selection
+            res.label = data.label;
           } else {
             const neighbors = getNeighbors(graph, hovered);
             if (neighbors.has(node)) {
               res.forceLabel = true;
-              res.color = COLORS.nodeNeighbor;
             }
           }
         }
@@ -284,42 +296,38 @@ export default function GraphContainer() {
       },
 
       /**
-       * Edge reducer: dynamically styles each edge based on current focus state.
-       * - Edges connected to selected node: bright + thick
-       * - Edges not connected when something is selected: very faded
-       * - Hovered edge: highlighted
+       * Edge reducer: hover-only edge highlighting.
+       * - Hover node: highlight all connected edges
+       * - Hover edge: highlight that single edge
+       * - Selected node: fade non-connected edges (no bright highlighting)
+       * - Default: standard computed sizes and colors
        */
       edgeReducer: (edge, data) => {
         const res = { ...data };
-        const selected = selectedNodeRef.current;
-        const selectedE = selectedEdgeRef.current;
         const hovered = hoveredNodeRef.current;
+        const hoveredE = hoveredEdgeRef.current;
+        const selected = selectedNodeRef.current;
 
-        if (selectedE) {
-          if (edge === selectedE) {
-            res.color = COLORS.edgeHighlight;
-            res.size = SIZES.highlightEdge;
-            res.zIndex = 2;
-          } else {
-            res.color = COLORS.edgeFaded;
-            res.size = SIZES.fadedEdge;
-          }
-        } else if (selected) {
+        // Selection-based fading (base layer)
+        if (selected) {
           const connectedEdges = getConnectedEdges(graph, selected);
-          if (connectedEdges.has(edge)) {
-            res.color = COLORS.edgeHighlight;
-            res.size = SIZES.highlightEdge;
-            res.zIndex = 1;
-          } else {
+          if (!connectedEdges.has(edge)) {
             res.color = COLORS.edgeFaded;
-            res.size = SIZES.fadedEdge;
           }
-        } else if (hovered) {
+        }
+
+        // Hover highlights (override layer)
+        if (hovered) {
           const connectedEdges = getConnectedEdges(graph, hovered);
           if (connectedEdges.has(edge)) {
             res.color = COLORS.edgeHighlight;
-            res.size = SIZES.highlightEdge;
+            res.size = (data.size || 0.5) * 2.5;
+            res.zIndex = 2;
           }
+        } else if (hoveredE && edge === hoveredE) {
+          res.color = COLORS.edgeHighlight;
+          res.size = (data.size || 0.5) * 2.5;
+          res.zIndex = 2;
         }
 
         return res;
@@ -347,7 +355,7 @@ export default function GraphContainer() {
       selectEdge(null);
     });
 
-    // Hover events for tooltip
+    // Hover events for tooltip + edge highlighting
     sigma.on('enterNode', ({ node }) => {
       setHoveredNode(node);
       containerRef.current!.style.cursor = 'pointer';
@@ -363,11 +371,13 @@ export default function GraphContainer() {
     sigma.on('enterEdge', ({ edge }) => {
       setHoveredEdge(edge);
       containerRef.current!.style.cursor = 'pointer';
+      sigma.refresh();
     });
 
     sigma.on('leaveEdge', () => {
       setHoveredEdge(null);
       containerRef.current!.style.cursor = 'default';
+      sigma.refresh();
     });
 
     // Trigger re-render when selection state changes

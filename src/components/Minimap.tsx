@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useGraphStore } from '../store/graphStore';
-import { COLORS } from '../lib/graphUtils';
+import { COLORS, nodeColorFromGroup } from '../lib/graphUtils';
 
 /**
  * Minimap (top-right) showing a small overview of all nodes.
@@ -66,7 +66,7 @@ export default function Minimap() {
       }
     }
 
-    // Draw nodes
+    // Draw nodes with group colors
     ctx.globalAlpha = 1;
     for (const node of graphData.nodes) {
       const { sx, sy } = toScreen(node.x ?? 0, node.y ?? 0);
@@ -74,10 +74,8 @@ export default function Minimap() {
       const isSelected = node.id === selectedNode;
 
       ctx.fillStyle = isSelected
-        ? COLORS.nodeHighlight
-        : isCentral
-          ? COLORS.centralNode
-          : COLORS.nodeDefault;
+        ? '#ffffff'
+        : nodeColorFromGroup(node.group);
 
       ctx.beginPath();
       ctx.arc(sx, sy, isSelected ? 3.5 : isCentral ? 3 : 1.8, 0, Math.PI * 2);

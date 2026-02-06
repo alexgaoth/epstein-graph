@@ -1,7 +1,13 @@
+export interface GroupDef {
+  color: string;
+  label: string;
+}
+
 export interface GraphNode {
   id: string;
   label: string;
   role?: string;
+  group?: string;
   x?: number;
   y?: number;
   size?: number;
@@ -27,6 +33,7 @@ export interface GraphEdge {
 }
 
 export interface GraphData {
+  groups?: Record<string, GroupDef>;
   nodes: GraphNode[];
   edges: GraphEdge[];
 }
