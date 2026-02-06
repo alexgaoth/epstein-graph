@@ -39,3 +39,18 @@ export interface GraphData {
   nodes: GraphNode[];
   edges: GraphEdge[];
 }
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (container: string | HTMLElement, options: Record<string, unknown>) => string;
+      remove: (widgetId: string) => void;
+      reset: (widgetId: string) => void;
+    };
+    __addNodeToGraph?: (node: GraphNode) => void;
+    __addEdgeToGraph?: (edge: GraphEdge) => void;
+    __resetGraphCamera?: () => void;
+    __centerOnGraphNode?: (nodeId: string) => void;
+    __TURNSTILE_SITE_KEY__?: string;
+  }
+}

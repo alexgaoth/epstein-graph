@@ -15,6 +15,7 @@ export default function InfoPanel() {
     closeInfoPanel,
     getNodeById,
     getEdgeById,
+    openAddEdgeModal,
   } = useGraphStore();
 
   if (!infoPanelOpen || !graphData) return null;
@@ -86,6 +87,17 @@ export default function InfoPanel() {
               );
             })}
           </div>
+
+          {/* Add connection button */}
+          <button
+            onClick={() => openAddEdgeModal(selectedNode)}
+            className="mt-4 w-full py-2 rounded-lg bg-graph-accent/10 border border-graph-accent/20 text-xs text-graph-accent hover:bg-graph-accent/20 transition-colors flex items-center justify-center gap-1.5"
+          >
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 16 16" stroke="currentColor" strokeWidth="1.5">
+              <path d="M8 3v10M3 8h10" />
+            </svg>
+            Add connection
+          </button>
         </div>
       </div>
     );

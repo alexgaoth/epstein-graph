@@ -10,6 +10,11 @@ interface GraphStore {
   searchQuery: string;
   infoPanelOpen: boolean;
 
+  // Modal state
+  addNodeModalOpen: boolean;
+  addEdgeModalOpen: boolean;
+  addEdgeSourceNode: string | null;
+
   setGraphData: (data: GraphData) => void;
   selectNode: (id: string | null) => void;
   selectEdge: (id: string | null) => void;
@@ -17,6 +22,16 @@ interface GraphStore {
   setHoveredEdge: (id: string | null) => void;
   setSearchQuery: (q: string) => void;
   closeInfoPanel: () => void;
+
+  // Modal actions
+  openAddNodeModal: () => void;
+  closeAddNodeModal: () => void;
+  openAddEdgeModal: (sourceId: string) => void;
+  closeAddEdgeModal: () => void;
+
+  // Live graph mutation
+  addNode: (node: GraphNode) => void;
+  addEdge: (edge: GraphEdge) => void;
 
   getNodeById: (id: string) => GraphNode | undefined;
   getEdgeById: (id: string) => GraphEdge | undefined;
@@ -32,6 +47,10 @@ export const useGraphStore = create<GraphStore>((set, get) => ({
   hoveredEdge: null,
   searchQuery: '',
   infoPanelOpen: false,
+
+  addNodeModalOpen: false,
+  addEdgeModalOpen: false,
+  addEdgeSourceNode: null,
 
   setGraphData: (data) => set({ graphData: data }),
 
@@ -54,6 +73,25 @@ export const useGraphStore = create<GraphStore>((set, get) => ({
   setSearchQuery: (q) => set({ searchQuery: q }),
   closeInfoPanel: () =>
     set({ infoPanelOpen: false, selectedNode: null, selectedEdge: null }),
+
+  openAddNodeModal: () => set({ addNodeModalOpen: true }),
+  closeAddNodeModal: () => set({ addNodeModalOpen: false }),
+  openAddEdgeModal: (sourceId) => set({ addEdgeModalOpen: true, addEdgeSourceNode: sourceId }),
+  closeAddEdgeModal: () => set({ addEdgeModalOpen: false, addEdgeSourceNode: null }),
+
+  addNode: (node) => {
+    const data = get().graphData;
+    if (!data) return;
+    set({ graphData: { ...data, nodes: [...data.nodes, node] } });
+    window.__addNodeToGraph?.(node);
+  },
+
+  addEdge: (edge) => {
+    const data = get().graphData;
+    if (!data) return;
+    set({ graphData: { ...data, edges: [...data.edges, edge] } });
+    window.__addEdgeToGraph?.(edge);
+  },
 
   getNodeById: (id) => get().graphData?.nodes.find((n) => n.id === id),
 

@@ -12,7 +12,7 @@ import {
   edgeSizeFromNodes,
   nodeColorFromGroup,
 } from '../lib/graphUtils';
-import type { GraphData } from '../types/graph';
+import type { GraphData, GraphNode, GraphEdge } from '../types/graph';
 
 /**
  * Core graph visualization component.
@@ -135,8 +135,8 @@ export default function GraphContainer() {
     const graph = new Graph();
     graphRef.current = graph;
 
-    // Fetch graph data
-    fetch('/data/graph.json')
+    // Fetch graph data (merged base + user-submitted from API)
+    fetch('/api/graph')
       .then((r) => r.json())
       .then((data: GraphData) => {
         setGraphData(data);
@@ -387,6 +387,59 @@ export default function GraphContainer() {
       sigma.refresh();
     });
 
+    // --- Live graph mutation from user submissions ---
+    window.__addNodeToGraph = (node: GraphNode) => {
+      if (!graph.hasNode(node.id)) {
+        const defaultMale = '/data/images/default-male.svg';
+        const defaultFemale = '/data/images/default-female.svg';
+        const imgUrl = node.image
+          ? `/data/images/${node.image}`
+          : (node.gender === 'female' ? defaultFemale : defaultMale);
+
+        // Place near center with jitter
+        const epsteinPos = graph.hasNode('epstein')
+          ? { x: graph.getNodeAttribute('epstein', 'x'), y: graph.getNodeAttribute('epstein', 'y') }
+          : { x: 0, y: 0 };
+
+        graph.addNode(node.id, {
+          label: node.label,
+          x: epsteinPos.x + (Math.random() - 0.5) * 50,
+          y: epsteinPos.y + (Math.random() - 0.5) * 50,
+          size: nodeSizeFromDegree(0),
+          color: nodeColorFromGroup(node.group),
+          type: 'image',
+          image: imgUrl,
+          nodeRole: node.role || '',
+          nodeType: 'person',
+          nodeGroup: node.group || '',
+        });
+        sigma.refresh();
+      }
+    };
+
+    window.__addEdgeToGraph = (edge: GraphEdge) => {
+      if (graph.hasNode(edge.source) && graph.hasNode(edge.target) && !graph.hasEdge(edge.id)) {
+        graph.addEdgeWithKey(edge.id, edge.source, edge.target, {
+          color: COLORS.edgeDefault,
+          size: 0.5,
+          connectionType: edge.connection_type,
+          dojLink: edge.doj_link,
+          documentTitle: edge.document_title,
+          quoteSnippet: edge.quote_snippet || '',
+        });
+        // Recompute sizes for affected nodes
+        [edge.source, edge.target].forEach((nodeId) => {
+          const degree = graph.degree(nodeId);
+          graph.setNodeAttribute(nodeId, 'size', nodeSizeFromDegree(degree));
+        });
+        // Recompute edge size
+        const sourceSize = graph.getNodeAttribute(edge.source, 'size') as number;
+        const targetSize = graph.getNodeAttribute(edge.target, 'size') as number;
+        graph.setEdgeAttribute(edge.id, 'size', edgeSizeFromNodes(sourceSize, targetSize));
+        sigma.refresh();
+      }
+    };
+
     // Trigger re-render when selection state changes
     const unsubscribe = useGraphStore.subscribe(() => {
       sigma.refresh();
@@ -394,6 +447,8 @@ export default function GraphContainer() {
 
     return () => {
       unsubscribe();
+      delete window.__addNodeToGraph;
+      delete window.__addEdgeToGraph;
       if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
       layoutRunningRef.current = false;
       sigma.kill();

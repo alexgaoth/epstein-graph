@@ -5,6 +5,9 @@ import Legend from './components/Legend';
 import Tooltip from './components/Tooltip';
 import Minimap from './components/Minimap';
 import ResetButton from './components/ResetButton';
+import AddNodeButton from './components/AddNodeButton';
+import AddNodeModal from './components/AddNodeModal';
+import AddEdgeModal from './components/AddEdgeModal';
 
 export default function App() {
   return (
@@ -16,9 +19,14 @@ export default function App() {
       <SearchBar />
       <Minimap />
       <Legend />
+      <AddNodeButton />
       <ResetButton />
       <Tooltip />
       <InfoPanel />
+
+      {/* Modals */}
+      <AddNodeModal />
+      <AddEdgeModal />
 
       {/* Source attribution */}
       <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-20 text-[10px] text-graph-text-dim/40 pointer-events-none select-none">
