@@ -15,7 +15,19 @@
       "Bash(where:*)",
       "WebSearch",
       "WebFetch(domain:commons.wikimedia.org)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(dir:*)",
+      "WebFetch(domain:help.webshare.io)",
+      "WebFetch(domain:apidocs.webshare.io)",
+      "Bash(nslookup:*)",
+      "Bash(for port in 1080 3128 9999 10000 10001 10002 10003 10004 10005)",
+      "Bash(do echo -n \"Port $port: \")",
+      "Bash(done)",
+      "WebFetch(domain:www.justice.gov)",
+      "Bash(pip install:*)",
+      "Bash(python:*)",
+      "WebFetch(domain:www.pbs.org)",
+      "WebFetch(domain:foxbaltimore.com)"
     ]
   }
 }
